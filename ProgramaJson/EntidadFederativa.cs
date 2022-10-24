@@ -11,7 +11,7 @@ namespace ProgramaJson
 
         public string entidadFederativaDesc { get; set; }
 
-        public double idEnidadFederaiva { get; set; }
+        public double idEntidadFederativa { get; set; }
 
     }
 }

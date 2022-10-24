@@ -24,8 +24,7 @@ namespace ProgramaJson
 
         static void Main(string[] args)
         {
-            Program pg = new Program();
-            List<Ente> listaEnte = new List<Ente>();
+            
 
             var ente = GetEnte();
             SerializeJsonFile(ente);
@@ -36,7 +35,7 @@ namespace ProgramaJson
         {
             try
             {
-                string rutaDestino = @"D:/Prueba/" + "Declaranet -" + DateTime.Now.ToString("dd-MM-yyyy hhmmss") + ".json";
+                string rutaDestino = @"C:/Prueba/" + "Declaranet -" + DateTime.Now.ToString("dd-MM-yyyy hhmmss") + ".json";
                 string generarJson = JsonConvert.SerializeObject(listaEnte.ToArray(), Formatting.Indented);
                 
                 File.WriteAllText(rutaDestino, generarJson);
@@ -56,7 +55,7 @@ namespace ProgramaJson
             
             string rutaArchivo;
             Console.WriteLine("Ingrese la ruta del archivo");
-            rutaArchivo = @"D:\Prueba\dt.xlsx";
+            rutaArchivo = @"C:\Prueba\real.xlsx";
 
             SLDocument sl = new SLDocument(rutaArchivo);
             SLWorksheetStatistics propiedades = sl.GetWorksheetStatistics();
@@ -69,7 +68,6 @@ namespace ProgramaJson
 
             List<Ente> listaEnte = new List<Ente>();
 
-            //while (!string.IsNullOrEmpty())   
             for (int i = 2; i <= tamanoFila; i++)
             {
                 var objEnte = new Ente();
@@ -82,35 +80,35 @@ namespace ProgramaJson
                     var datosDeControl = new DatosDeControl();
                     var entidadFederativa = new EntidadFederativa();
 
+                    objEnte.Id = "";
                     objEnte.EnteDes = sl.GetCellValueAsString(i, j);
+                    
+                    objEnte.IdentificadorINAI = 1;
 
                     objEnte.NombreCorto = sl.GetCellValueAsString(i, ++j);
 
                     nivelGobierno.Nombre = sl.GetCellValueAsString(i, ++j);
 
                     objEnte.Poder = sl.GetCellValueAsString(i, ++j);
+                    objEnte.SecNac = "No_Se_Nac";
                     objEnte.TipoEntidad = sl.GetCellValueAsString(i, ++j);
+                    objEnte.UnidadResponsable = "0";
+                    objEnte.idEnteOrigen = "";
 
+                    objEnte.NivelGobierno = nivelGobierno;
+                    nivelGobierno.EntidadFederativa = entidadFederativa;
                     entidadFederativa.entidadFederativaDesc = sl.GetCellValueAsString(i, ++j);
+                    entidadFederativa.idEntidadFederativa = 4;
 
                     objEnte.Ramo = sl.GetCellValueAsInt32(i, ++j);
                     objEnte.Rfc = sl.GetCellValueAsString(i, ++j);
 
-                    objEnte.NivelGobierno = nivelGobierno;
-                    nivelGobierno.EntidadFederativa = entidadFederativa;
-                    
-                    
-                    objEnte.IdentificadorINAI = 1;
-                    objEnte.SecNac = "No SEC NAC";
-                    
-                    objEnte.UnidadResponsable = "gUARDIA";
-                    objEnte.idEnteOrigen = "121345tty";
-
-                    datosDeControl.UsuarioActualiza = 1;
-                    datosDeControl.Situacion = "normal";
+             
+                    datosDeControl.UsuarioActualiza = 0;
+                    datosDeControl.Situacion = "NORMAL";
                     datosDeControl.FechaRegistro = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
-                    //datosDeControl.fechaUltimaActualiza = '';
-                    datosDeControl.UsuarioRegistra = 1;
+                    datosDeControl.FechaUltimaActualiza = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+                    datosDeControl.UsuarioRegistra = 0;
                     datosDeControl.Activo = 1;
                     
                     objEnte.DatosDeControl = datosDeControl;
