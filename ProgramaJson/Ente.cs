@@ -18,6 +18,9 @@ namespace ProgramaJson
         public double Ramo { get; set; }
         public string Rfc { get; set; }
         public string SecNac { get; set; }
+        public string UnidadResponsable { get; set; }
+        public string idEnteOrigen { get; set; }
+        public string TipoEntidad { get; set; }
 
 
     }

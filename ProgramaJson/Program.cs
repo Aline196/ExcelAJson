@@ -48,6 +48,8 @@ namespace ProgramaJson
 
 
         }
+
+
         public static List<Ente> GetEnte()
         {
             
@@ -65,13 +67,15 @@ namespace ProgramaJson
             List<Ente> listaEnte = new List<Ente>();
 
             //while (!string.IsNullOrEmpty())   
-            for (int i = 2; i <= tamanoFila; i++)
+            for (int i = 2; i <= tamanoFila; )
             {
                 var objEnte = new Ente();
 
-
-                for (int j = 1; j < tamanoColumna;)
+                int Reinicio = 1;
+                for (int j = 1; j < tamanoColumna ;)
                 {
+                    j = Reinicio;
+
                     var nivelGobierno = new NivelGobierno();
                     var datosDeControl = new DatosDeControl();
                     var entidadFederativa = new EntidadFederativa();
@@ -83,33 +87,39 @@ namespace ProgramaJson
                     nivelGobierno.Nombre = sl.GetCellValueAsString(i, ++j);
 
                     objEnte.Poder = sl.GetCellValueAsString(i, ++j);
-                    objEnte.tipoEntidad = sl.GetCellValueAsString(i, ++j);
+                    objEnte.TipoEntidad = sl.GetCellValueAsString(i, ++j);
+
                     entidadFederativa.entidadFederativaDesc = sl.GetCellValueAsString(i, ++j);
+
                     objEnte.Ramo = sl.GetCellValueAsDouble(i, ++j);
                     objEnte.Rfc = sl.GetCellValueAsString(i, ++j);
 
-                    nivelGobierno.EntidadFederativa = entidadFederativa;
                     objEnte.NivelGobierno = nivelGobierno;
+                    nivelGobierno.EntidadFederativa = entidadFederativa;
+                    
                     entidadFederativa.entidadFederativaDesc = "Campeche";
                     objEnte.IdentificadorINAI = 1;
                     objEnte.SecNac = "No SEC NAC";
                     
-                    objEnte.unidadResponsable = "gUARDIA";
+                    objEnte.UnidadResponsable = "gUARDIA";
                     objEnte.idEnteOrigen = "121345tty";
 
-                    datosDeControl.usuarioActualiza = 1;
-                    datosDeControl.situacion = "normal";
+                    datosDeControl.UsuarioActualiza = 1;
+                    datosDeControl.Situacion = "normal";
                     //datosDeControl.fechaRegistro = "";
                     //datosDeControl.fechaUltimaActualiza = '';
-                    datosDeControl.usuarioRegistra = 1;
-                    datosDeControl.activo = 1;
+                    datosDeControl.UsuarioRegistra = 1;
+                    datosDeControl.Activo = 1;
 
 
-
+                    i++;
 
                 }
 
                 listaEnte.Add(objEnte);
+               
+                 
+                
 
             }
 

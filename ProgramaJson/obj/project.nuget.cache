@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JdDrZoMJ/eGMybuka8xAK0+sK8+BUFtDchz8MJZKCqoDmUegNjb9UsvCzSPLK9Kje6Zsz4GXmHXp8HdHg/hLIg==",
+  "dgSpecHash": "JT0J63jmE4uckg7KPuJbKyleelOs1nLFryqEkEuqGQVuCZvGvlzKF+Og46Ey4c/Td6VB+ypChUhs8AsHxxwwXQ==",
   "success": true,
-  "projectFilePath": "E:\\Documents\\Programacion\\Cursos\\CursosIndependientes\\C#\\ProgramaJson\\ProgramaJson\\ProgramaJson.csproj",
+  "projectFilePath": "E:\\Documents\\Programacion\\Cursos\\CursosIndependientes\\Csharp\\ExcelAJson\\ProgramaJson\\ProgramaJson.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aline\\.nuget\\packages\\documentformat.openxml\\2.11.3\\documentformat.openxml.2.11.3.nupkg.sha512",
     "C:\\Users\\Aline\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",

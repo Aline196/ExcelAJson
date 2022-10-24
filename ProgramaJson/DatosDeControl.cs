@@ -15,7 +15,7 @@ namespace ProgramaJson
         public DateTime FechaUltimaActualiza { get; set; }
         public double UsuarioRegistra { get; set; }
         public double Activo { get; set; }
-        public double EnteDesc { get; set; }
+        //public double EnteDesc { get; set; }
 
     }
 }
